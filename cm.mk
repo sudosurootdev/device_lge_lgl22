@@ -12,11 +12,11 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/lge/d802/L01F.mk)
+$(call inherit-product, device/lge/L01F/L01F.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := l01f
-PRODUCT_NAME := cm_f01f
+PRODUCT_DEVICE := L01F
+PRODUCT_NAME := cm_L01F
 PRODUCT_BRAND := LGE
 PRODUCT_MODEL := LG-L01F
 PRODUCT_MANUFACTURER := lge
