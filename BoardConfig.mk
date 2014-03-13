@@ -22,3 +22,5 @@ TARGET_OTA_ASSERT_DEVICE := d802,g2,galbi,d800,L01F,LGL22
 
 G2_DTS_TARGET := msm8974-g2-kddi
 
+BOARD_RECOVERY_SWIPE := true
+TARGET_RECOVERY_FSTAB := device/lge/g2-common/fstab.g2
