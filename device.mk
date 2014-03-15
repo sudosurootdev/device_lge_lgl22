@@ -13,13 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-LOCAL_PATH := device/lge/lgl22
 
 $(call inherit-product-if-exists, vendor/lge/lgl22/lgl22-vendor.mk)
-$(call inherit-product, device/lge/g2-common/g2.mk)
-
-## overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	telephony.lteOnGsmDevice=1 \
@@ -37,6 +32,14 @@ PRODUCT_PACKAGES += \
 
 # root dir
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.g2:root/fstab.g2 \
-    $(LOCAL_PATH)/rootdir/init.g2.rc:root/init.g2.rc 
+    device/lge/lgl22/rootdir/fstab.g2:root/fstab.g2 \
+    device/lge/lgl22/rootdir/init.g2.rc:root/init.g2.rc 
+
+## overlays
+DEVICE_PACKAGE_OVERLAYS += device/lge/lgl22/overlay
+
+# inherit (this must be after PRODUCT_COPY_FILES section)
+$(call inherit-product, device/lge/g2-common/g2.mk)
+
+
 
