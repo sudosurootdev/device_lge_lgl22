@@ -18,9 +18,8 @@ include device/lge/g2-common/BoardConfigCommon.mk
 
 TARGET_KERNEL_CONFIG := cyanogenmod_lgl22_defconfig
 
-TARGET_OTA_ASSERT_DEVICE := d802,g2,galbi,d800,l01f,lgl22
+TARGET_OTA_ASSERT_DEVICE := lgl22,g2,galbi,d800
 
 G2_DTS_TARGET := msm8974-g2-kddi
 
 BOARD_RECOVERY_SWIPE := true
-TARGET_RECOVERY_FSTAB := device/lge/g2-common/fstab.g2
