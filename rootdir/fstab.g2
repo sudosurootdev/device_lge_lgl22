@@ -11,5 +11,7 @@
 /dev/block/platform/msm_sdcc.1/by-name/mpt /mpt ext4 nodev,nosuid,barrier=1,noauto_da_alloc,errors=continue wait
 /devices/platform/xhci-hcd                   auto     vfat   defaults                                                        voldmanaged=usb:auto
 
-/dev/block/platform/msm_sdcc.2/mmcblk1p1   /external_sd             vfat    defaults   voldmanaged=sdcard1:auto
-#/devices/platform/msm_sdcc.2/mmc_host/mmc2   auto             auto    defaults   voldmanaged=sdcard1:auto
+#/dev/block/platform/msm_sdcc.2/mmcblk1p1   /external_sd             vfat    defaults   voldmanaged=sdcard1:auto
+/devices/platform/msm_sdcc.2/mmc_host/mmc2   auto             auto    defaults   voldmanaged=sdcard1:auto
+#/devices/platform/msm_sdcc.3/mmc_host/mmc0   auto             auto    defaults   voldmanaged=sdcard1:auto
+
