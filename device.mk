@@ -40,6 +40,3 @@ DEVICE_PACKAGE_OVERLAYS += device/lge/lgl22/overlay
 
 # inherit (this must be after PRODUCT_COPY_FILES section)
 $(call inherit-product, device/lge/g2-common/g2.mk)
-
-
-
