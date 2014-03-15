@@ -34,3 +34,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     nfc_nci.g2 \
     NfcNci
+
+# root dir
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/fstab.g2:root/fstab.g2 \
+    $(LOCAL_PATH)/rootdir/init.g2.rc:root/init.g2.rc 
+
