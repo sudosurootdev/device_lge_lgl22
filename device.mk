@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-$(call inherit-product-if-exists, vendor/lge/LGL22/LGL22-vendor.mk)
+$(call inherit-product-if-exists, vendor/lge/lgl22/lgl22-vendor.mk)
 $(call inherit-product, device/lge/g2-common/g2.mk)
 
 ## overlays
