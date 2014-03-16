@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-TARGET_RECOVERY_FSTAB := device/lge/lgl22/rootdir/fstab.g2
+TARGET_RECOVERY_FSTAB := device/lge/lgl22/rootdir/recovery.fstab
 
 include device/lge/g2-common/BoardConfigCommon.mk
 
