@@ -4,7 +4,6 @@ app/MobileFeliCaSettingApp.apk
 app/MobileFeliCaWebPluginBoot.apk
 earlyuninstallable/MobileFeliCaMenuMainApp.apk
 earlyuninstallable/MobileFeliCaWebPlugin.apk
-earlyuninstallable/iD.apk
 etc/Bluetooth_cal.acdb
 etc/General_cal.acdb
 etc/Global_cal.acdb
@@ -42,10 +41,6 @@ etc/firmware/venus.b02
 etc/firmware/venus.b03
 etc/firmware/venus.b04
 
-#dcm_emoji
-lib/libDecoEmojiJniNative.so
-lib/libemoji_docomo.so
-lib/libemojidata_type2_docomo.so
 
 lib/libvss_dmi_qcci.so
 lib/libvss_common_iface.so
@@ -65,14 +60,12 @@ lib/libWVphoneAPI.so
 #lib/libDxHdcp.so
 #lib/liblgehdcpek.so
 #lib/libdiagd_client.so
-lib/libacdbloader.so
 #bin/atd
 #bin/gsiff_daemon
 bin/rmt_storage
 bin/qmuxd
 lib/libril.so
 bin/rild
-lib/liblgderp.so
 bin/netmgrd
 bin/sensors.qcom
 bin/thermald
