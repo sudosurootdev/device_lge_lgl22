@@ -25,7 +25,7 @@ on init
 
     mkdir /storage/sdcard0 0700 root root
     mkdir /storage/sdcard1 0700 root root
-    mkdir /storage/usbdisk 0700 root root
+    mkdir /storage/usbdisk0 0700 root root
 
     export EXTERNAL_STORAGE /storage/emulated/legacy
     export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
@@ -41,8 +41,8 @@ on init
     symlink /storage/sdcard1 /extSdCard
     symlink /storage/sdcard1 /mnt/extSdCard
     symlink /storage/sdcard1 /external_sd
-    symlink /storage/usbdisk /usbdisk
-    symlink /storage/usbdisk /mnt/usbdisk
+    symlink /storage/usbdisk0 /usbdisk
+    symlink /storage/usbdisk0 /mnt/usbdisk
 
     # Setup custom emergency number list based on
     # the MCC. This is needed by RIL.
@@ -279,7 +279,7 @@ on post-fs-data
     write /sys/module/msm_thermal/core_control/enabled 1
     write /dev/cpuctl/apps/cpu.notify_on_migrate 1
 
-    write /sys/devices/virtual/input/lge_touch/touch_gesture 1
+    chown system system /sys/devices/virtual/input/lge_touch/touch_gesture
     chown root system /sys/devices/platform/tspdrv/nforce_timed
     chown root system /sys/devices/platform/kcal_ctrl.0/kcal
     chown root system /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
@@ -391,7 +391,7 @@ service cnd /system/bin/cnd
     socket cnd stream 660 root inet
 
 service thermal-engine /system/bin/thermal-engine --time=20
-   class main
+   class late_start
    user root
    group root
 
@@ -479,7 +479,6 @@ on property:sys.perf.profile=0
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor conservative
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor conservative
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor conservative
-    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
 
 # Balanced
 on property:sys.perf.profile=1
@@ -489,7 +488,6 @@ on property:sys.perf.profile=1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor ondemand
-    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
 
 # High performance
 on property:sys.perf.profile=2
@@ -503,4 +501,3 @@ on property:sys.perf.profile=2
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor performance
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor performance
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor performance
-    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor performance
