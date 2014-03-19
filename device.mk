@@ -17,7 +17,7 @@
 $(call inherit-product-if-exists, vendor/lge/lgl22/lgl22-vendor.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	telephony.lteOnGsmDevice=1 \
+	telephony.lteOnCdmaDevice=1 \
 	ro.telephony.default_network=10 \
 	ro.cdma.home.operator.numeric=311480 \
 	ro.cdma.home.operator.alpha=KDDI
@@ -38,5 +38,8 @@ PRODUCT_COPY_FILES += \
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/lge/lgl22/overlay
 
+
 # inherit (this must be after PRODUCT_COPY_FILES section)
 $(call inherit-product, device/lge/g2-common/g2.mk)
+
+
