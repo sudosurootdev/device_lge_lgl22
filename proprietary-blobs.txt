@@ -79,7 +79,13 @@ bin/irsc_util
 lib/libmmcamera_interface.so
 lib/hw/camera.msm8974.so
 lib/libHDR.so
+lib/libmorphoimageconverter_4.so
+lib/libmorpho_movie_stabilization.so
 lib/libmorpho_noise_reduction.so
+lib/libmorpho_panorama_wa_4.so
+lib/libmorpho_panorama_wa_viewer.so
+lib/libmorpho_sensor_fusion_4.so
+lib/libmorpho_video_denoiser.so
 lib/libmorpho_image_stab31.so
 lib/libmmjpeg_interface.so
 lib/libnfc_ndef.so
