@@ -23,7 +23,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.cdma.home.operator.alpha=KDDI
 
 PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
+	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+
+# Camera #ma34s test
+COMMON_GLOBAL_CFLAGS += -DCAMERA_WITH_CITYID_PARAM
+
+# RIL #ma34s test
+COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND='{ "ril.ks.status", AID_SYSTEM, 0 },'
+COMMON_GLOBAL_CFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
+
+# GPS configuration
+PRODUCT_COPY_FILES += \
+    device/lge/lgl22/gps.conf:system/etc/gps.conf
 
 # NFC packages
 PRODUCT_PACKAGES += \
@@ -38,11 +50,13 @@ PRODUCT_COPY_FILES += \
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/lge/lgl22/overlay
 
-# inherit (this must be after PRODUCT_COPY_FILES section)
-$(call inherit-product, device/lge/g2-common/g2.mk)
-
-
 # Default Locale
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.locale.language=ja \
     ro.product.locale.region=JP
+
+# inherit (this must be after PRODUCT_COPY_FILES section)
+$(call inherit-product, device/lge/g2-common/g2.mk)
+
+
+
