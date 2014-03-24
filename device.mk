@@ -33,10 +33,6 @@ COMMON_GLOBAL_CFLAGS += -DCAMERA_WITH_CITYID_PARAM
 COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND='{ "ril.ks.status", AID_SYSTEM, 0 },'
 COMMON_GLOBAL_CFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
 
-# GPS configuration
-PRODUCT_COPY_FILES += \
-    device/lge/lgl22/gps.conf:system/etc/gps.conf
-
 # NFC packages
 PRODUCT_PACKAGES += \
     nfc_nci.g2 \
