@@ -233,6 +233,9 @@ on post-fs-data
     # time_daemon storage
     mkdir /data/time/ 0700 system system
 
+    # time_daemon storage
+    mkdir /data/time/ 0700 system system
+
     # Enable Power modes and set the CPU Freq Sampling rates
     write /sys/module/lpm_resources/enable_low_power/l2 2
     write /sys/module/lpm_resources/enable_low_power/pxo 1
@@ -278,6 +281,10 @@ on post-fs-data
     chmod 0220 /sys/devices/system/cpu/mfreq
     write /sys/module/msm_thermal/core_control/enabled 1
     write /dev/cpuctl/apps/cpu.notify_on_migrate 1
+
+    # Torch
+    chown system camera /sys/class/leds/led:flash_torch/brightness
+    chmod 0660 /sys/class/leds/led:flash_torch/brightness
 
     chown system system /sys/devices/virtual/input/lge_touch/touch_gesture
     chown root system /sys/devices/platform/tspdrv/nforce_timed
