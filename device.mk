@@ -16,14 +16,6 @@
 
 $(call inherit-product-if-exists, vendor/lge/lgl22/lgl22-vendor.mk)
 
-PRODUCT_PROPERTY_OVERRIDES += \
-	telephony.lteOnCdmaDevice=1 \
-    telephony.lteOnGsmDevice=1 \
-	ro.telephony.default_network=10\
-	ro.cdma.home.operator.numeric=311480 \
-	ro.cdma.home.operator.alpha=KDDI
-
-
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
@@ -39,9 +31,9 @@ COMMON_GLOBAL_CFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
 COMMON_GLOBAL_CFLAGS += -DLGEJPN_UIDS
 
 # NFC packages
-PRODUCT_PACKAGES += \
-    nfc_nci.g2 \
-    NfcNci
+#PRODUCT_PACKAGES += \
+#    nfc_nci.g2 \
+#    NfcNci
 
 # root dir
 PRODUCT_COPY_FILES += \
