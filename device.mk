@@ -30,6 +30,10 @@ COMMON_GLOBAL_CFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
 # Felica
 COMMON_GLOBAL_CFLAGS += -DLGEJPN_UIDS
 
+# GPS configuration
+PRODUCT_COPY_FILES += \
+    device/lge/lgl22/gps.conf:system/etc/gps.conf
+
 # NFC packages
 #PRODUCT_PACKAGES += \
 #    nfc_nci.g2 \
