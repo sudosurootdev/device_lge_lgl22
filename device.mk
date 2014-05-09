@@ -39,8 +39,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/lge/lgl22/rootdir/fstab.g2:root/fstab.g2 \
     device/lge/lgl22/rootdir/init.g2_product.rc:root/init.g2_product.rc \
-    device/lge/lgl22/rootdir/init.g2.rc:root/init.g2.rc 
-
+    device/lge/lgl22/rootdir/init.g2.rc:root/init.g2.rc \
+    device/lge/lgl22/rootdir/init.environ.rc:root/init.environ.rc
 
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/lge/lgl22/overlay
