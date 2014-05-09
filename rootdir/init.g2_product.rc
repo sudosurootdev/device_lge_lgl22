@@ -151,11 +151,11 @@ on boot
 #2013.05.30 LGE_CHANGE_E kijae.park@lge.com, SMPL count
 
 # LGE_CHANGE_S, [UICC][KDDI] changoh.kim Add uimmdl_server service
-#service uimmdl_server /system/bin/uimmdl_server /dev/ttyGS0 /dev/hsic0
-#    class late_start
-#    user system
-#    group radio
-#    socket uimmdl_server stream 0660 radio system
+service uimmdl_server /system/bin/uimmdl_server /dev/ttyGS0 /dev/hsic0
+    class late_start
+    user system
+    group radio
+    socket uimmdl_server stream 0660 radio system
 # LGE_CHANGE_E, [UICC][KDDI] changoh.kim Add uimmdl_server service
 
 # LGE_CHANGE_S, 20120704, bg80.song@lge.com Add Sysfs Permission Change Routine for AAT IrDA Test
