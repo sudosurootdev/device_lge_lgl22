@@ -65,6 +65,12 @@ on early-boot
     setrlimit 8 67108864 67108864
 
 on boot
+    chmod 666 /dev/smem_log
+    chown system system /dev/smem_log
+    chmod 666 /dev/diag
+    chown system system /dev/diag
+
+
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
@@ -474,6 +480,12 @@ on nonencrypted
 on property:vold.decrypt=trigger_restart_framework
     setprop ro.fuse_sdcard ${persist.fuse_sdcard}
 
+service atd /system/bin/atd /dev/ttyGS0 /dev/smd0
+   socket atd stream 0660 system inet
+   disabled
+
+on property:ro.baseband="msm"
+   start atd
 
 ## Power profiles (CM QS tile)
 ## restarting thermal-engine will kill the system :/
