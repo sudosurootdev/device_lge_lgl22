@@ -20,11 +20,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
-# Camera #ma34s test
-COMMON_GLOBAL_CFLAGS += -DCAMERA_WITH_CITYID_PARAM
-
-# RIL #ma34s test
-COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND='{ "ril.ks.status", AID_SYSTEM, 0 },'
+# RIL 
 COMMON_GLOBAL_CFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
 
 # Felica
@@ -35,15 +31,16 @@ PRODUCT_COPY_FILES += \
     device/lge/lgl22/gps.conf:system/etc/gps.conf
 
 # NFC packages
-#PRODUCT_PACKAGES += \
-#    nfc_nci.g2 \
-#    NfcNci
+PRODUCT_PACKAGES += \
+    nfc_nci.g2 \
+    NfcNci
 
 # root dir
 PRODUCT_COPY_FILES += \
     device/lge/lgl22/rootdir/fstab.g2:root/fstab.g2 \
     device/lge/lgl22/rootdir/init.g2_product.rc:root/init.g2_product.rc \
     device/lge/lgl22/rootdir/init.g2.rc:root/init.g2.rc 
+
 
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/lge/lgl22/overlay
