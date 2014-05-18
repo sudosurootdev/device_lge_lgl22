@@ -32,9 +32,9 @@ PRODUCT_COPY_FILES += \
     device/lge/lgl22/gps.conf:system/etc/gps.conf
 
 # NFC packages
-PRODUCT_PACKAGES += \
-    nfc_nci.g2 \
-    NfcNci
+#PRODUCT_PACKAGES += \
+#    nfc_nci.g2 \
+#    NfcNci
 
 # root dir
 PRODUCT_COPY_FILES += \
