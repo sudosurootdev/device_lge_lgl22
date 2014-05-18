@@ -46,11 +46,6 @@ PRODUCT_COPY_FILES += \
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/lge/lgl22/overlay
 
-# Default Locale
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.locale.language=ja \
-    ro.product.locale.region=JP
-
 # inherit (this must be after PRODUCT_COPY_FILES section)
 $(call inherit-product, device/lge/g2-common/g2.mk)
 
