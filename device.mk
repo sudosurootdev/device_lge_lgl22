@@ -31,8 +31,11 @@ COMMON_GLOBAL_CFLAGS += -DLGEJPN_JB_SYMS
 PRODUCT_COPY_FILES += \
     device/lge/lgl22/gps.conf:system/etc/gps.conf
 
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
 # NFC packages
 #PRODUCT_PACKAGES += \
+#    nfc.default \
 #    nfc_nci.g2 \
 #    NfcNci
 

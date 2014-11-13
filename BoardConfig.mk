@@ -24,3 +24,4 @@ TARGET_OTA_ASSERT_DEVICE := lgl22,g2,galbi
 G2_DTS_TARGET := msm8974-g2-kddi
 
 BOARD_RECOVERY_SWIPE := true
+
