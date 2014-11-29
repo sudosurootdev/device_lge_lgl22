@@ -18,6 +18,8 @@ TARGET_RECOVERY_FSTAB := device/lge/lgl22/rootdir/recovery.fstab
 include device/lge/g2-common/BoardConfigCommon.mk
 
 TARGET_KERNEL_CONFIG := cyanogenmod_lgl22_defconfig
+#
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=g2 user_debug=31 msm_rtb.filter=0x0  androidboot.selinux=permissive
 
 TARGET_OTA_ASSERT_DEVICE := lgl22,g2,galbi
 
