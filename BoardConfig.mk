@@ -21,9 +21,14 @@ TARGET_KERNEL_CONFIG := cyanogenmod_lgl22_defconfig
 #
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=g2 user_debug=31 msm_rtb.filter=0x0  androidboot.selinux=permissive
 
-TARGET_OTA_ASSERT_DEVICE := lgl22,g2,galbi
+TARGET_OTA_ASSERT_DEVICE := lgl22,l22,g2,galbi
 
 G2_DTS_TARGET := msm8974-g2-kddi
 
 BOARD_RECOVERY_SWIPE := true
+
+#for LGL22 custom :use opne bump
+BOARD_CUSTOM_BOOTIMG_MK := device/lge/lgl22/releasetools/mkbootimg.mk
+#disable loki in install process
+TARGET_RELEASETOOLS_EXTENSIONS := 
 
