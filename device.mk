@@ -16,45 +16,53 @@
 
 $(call inherit-product-if-exists, vendor/lge/lgl22/lgl22-vendor.mk)
 
+## overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	telephony.lteOnCdmaDevice=1 \
+        telephony.lteOnGsmDevice=1 \
+        gsm.apn.sim.operator.numeric=44050 \
+	ro.telephony.default_network=10\
+	ro.product.locale.language=ja \
+	ro.product.locale.region=JP \
+        ril.current.datatech=0 \
+        ril.current.ehrpdipv6enable=1 \
+        ril.current.vzwfeature=1 \
+        ril.subscription.types=NV,RUIM \
+        rild.libargs=-d /dev/smd0 \
+        rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
+        ro.ril.svdo=false \
+        ro.ril.svlte1x=false \
+        ro.vendor.extension_library=/vendor/lib/libqc-opt.so \
+        ril.ecclist.autoprofile=110,118,119 \
+        ril.ecclist=110,118,119,911,*911,#911,112
+
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
-# Camera #ma34s test
-COMMON_GLOBAL_CFLAGS += -DCAMERA_WITH_CITYID_PARAM
+PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:system/etc/apns-conf
 
-# RIL #ma34s test
+COMMON_GLOBAL_CFLAGS += -DCAMERA_WITH_CITYID_PARAM
 COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND='{ "ril.ks.status", AID_SYSTEM, 0 },'
 COMMON_GLOBAL_CFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
-
-# Felica
 COMMON_GLOBAL_CFLAGS += -DLGEJPN_UIDS
+
+# NFC packages
+PRODUCT_PACKAGES += \
+    nfc_nci.bcm2079x.default \
+    NfcNci
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-    device/lge/lgl22/gps.conf:system/etc/gps.conf
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
-# NFC packages
-#PRODUCT_PACKAGES += \
-#    nfc_nci.g2 \
-#    NfcNci
-
-# root dir
+# NFC
 PRODUCT_COPY_FILES += \
-    device/lge/lgl22/rootdir/fstab.g2:root/fstab.g2 \
-    device/lge/lgl22/rootdir/init.g2_product.rc:root/init.g2_product.rc \
-    device/lge/lgl22/rootdir/init.g2.rc:root/init.g2.rc 
+    $(LOCAL_PATH)/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf
 
-## overlays
-DEVICE_PACKAGE_OVERLAYS += device/lge/lgl22/overlay
+PRODUCT_COPY_FILES += \
+    device/lge/lgl22/rootdir/fstab.g2:root/fstab.g2
 
-# Default Locale
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.locale.language=ja \
-    ro.product.locale.region=JP
-
-# inherit (this must be after PRODUCT_COPY_FILES section)
 $(call inherit-product, device/lge/g2-common/g2.mk)
-
-
-
