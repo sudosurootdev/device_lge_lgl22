@@ -15,46 +15,34 @@
 #
 
 $(call inherit-product-if-exists, vendor/lge/lgl22/lgl22-vendor.mk)
+$(call inherit-product, device/lge/g2-common/g2.mk)
+
+## overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	telephony.lteOnCdmaDevice=1 \
+	telephony.lteOnGsmDevice=1 \
+	ro.telephony.default_network=10\
+	ro.cdma.home.operator.numeric=311480 \
+	ro.cdma.home.operator.alpha=KDDI \
+	ro.cdma.homesystem=64,65,76,77,78,79,80,81,82,83 \
+	ro.product.locale.language=ja \
+	ro.product.locale.region=JP
 
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
-# Camera #ma34s test
-COMMON_GLOBAL_CFLAGS += -DCAMERA_WITH_CITYID_PARAM
-
-# RIL #ma34s test
-COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND='{ "ril.ks.status", AID_SYSTEM, 0 },'
-COMMON_GLOBAL_CFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
-
-# Felica
-COMMON_GLOBAL_CFLAGS += -DLGEJPN_UIDS
+# NFC packages
+PRODUCT_PACKAGES += \
+    nfc_nci.bcm2079x.default \
+    NfcNci
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-    device/lge/lgl22/gps.conf:system/etc/gps.conf
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
-# NFC packages
-#PRODUCT_PACKAGES += \
-#    nfc_nci.g2 \
-#    NfcNci
-
-# root dir
+# NFC
 PRODUCT_COPY_FILES += \
-    device/lge/lgl22/rootdir/fstab.g2:root/fstab.g2 \
-    device/lge/lgl22/rootdir/init.g2_product.rc:root/init.g2_product.rc \
-    device/lge/lgl22/rootdir/init.g2.rc:root/init.g2.rc 
-
-## overlays
-DEVICE_PACKAGE_OVERLAYS += device/lge/lgl22/overlay
-
-# Default Locale
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.locale.language=ja \
-    ro.product.locale.region=JP
-
-# inherit (this must be after PRODUCT_COPY_FILES section)
-$(call inherit-product, device/lge/g2-common/g2.mk)
-
-
-
+    $(LOCAL_PATH)/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf

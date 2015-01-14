@@ -13,14 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-TARGET_RECOVERY_FSTAB := device/lge/lgl22/rootdir/recovery.fstab
 
 include device/lge/g2-common/BoardConfigCommon.mk
 
-TARGET_KERNEL_CONFIG := cyanogenmod_lgl22_defconfig
+TARGET_KERNEL_CONFIG := lgl22_defconfig
 
 TARGET_OTA_ASSERT_DEVICE := lgl22,g2,galbi
 
 G2_DTS_TARGET := msm8974-g2-kddi
-
-BOARD_RECOVERY_SWIPE := true
